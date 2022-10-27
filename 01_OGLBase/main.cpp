@@ -16,9 +16,13 @@
 #include "Includes/GLDebugMessageCallback.h"
 
 #include "MyApp.h"
+#include "ReadCoords.hpp"
 
 int main( int argc, char* args[] )
 {
+	// Read Coords:
+	ReadCoords::read();
+
 	// állítsuk be, hogy kilépés előtt hívja meg a rendszer az exitProgram() függvényt - Kérdés: mi lenne enélkül?
 	atexit([]() {
 		SDL_Quit();

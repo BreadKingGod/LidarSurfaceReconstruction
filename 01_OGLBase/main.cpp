@@ -17,11 +17,13 @@
 
 #include "MyApp.h"
 #include "ReadCoords.hpp"
+#include "ReadImage.hpp"
 
 int main( int argc, char* args[] )
 {
 	// Read Coords:
 	ReadCoords::read();
+	ReadImage::read();
 
 	// állítsuk be, hogy kilépés előtt hívja meg a rendszer az exitProgram() függvényt - Kérdés: mi lenne enélkül?
 	atexit([]() {

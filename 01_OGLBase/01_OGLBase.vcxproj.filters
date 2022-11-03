@@ -81,6 +81,9 @@
     <ClInclude Include="ReadCoords.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="ReadImage.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyApp.cpp">
@@ -152,5 +155,16 @@
     <None Include="..\..\..\..\Downloads\L1_S5.xyz">
       <Filter>Resource Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="T:\opencv\sources\samples\data\starry_night.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="starry_night.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="T:\opencv\sources\samples\data\starry_night.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

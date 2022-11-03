@@ -46,13 +46,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>T:\OGLPack\include;$(IncludePath)</IncludePath>
-    <LibraryPath>T:\OGLPack\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>T:\OGLPack\include;T:\opencv\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>T:\OGLPack\lib\x64;T:\opencv\build\x64\vc15\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>T:\OGLPack\include;$(IncludePath)</IncludePath>
-    <LibraryPath>T:\OGLPack\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>T:\OGLPack\include;T:\opencv\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>T:\OGLPack\lib\x64;T:\opencv\build\x64\vc15\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -66,7 +66,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;glew32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;glew32.lib;opengl32.lib;opencv_world460d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -83,7 +83,7 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;glew32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;glew32.lib;opengl32.lib;opencv_world460d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -101,6 +101,7 @@
     <ClInclude Include="Includes\VertexArrayObject.h" />
     <ClInclude Include="MyApp.h" />
     <ClInclude Include="ReadCoords.hpp" />
+    <ClInclude Include="ReadImage.hpp" />
     <ClInclude Include="T:\OGLPack\include\imgui\imconfig.h" />
     <ClInclude Include="T:\OGLPack\include\imgui\imgui.h" />
     <ClInclude Include="T:\OGLPack\include\imgui\imgui_impl_sdl_gl3.h" />
@@ -133,6 +134,13 @@
   <ItemGroup>
     <None Include="myFrag.frag" />
     <None Include="myVert.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="starry_night.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="T:\opencv\sources\samples\data\starry_night.jpg" />
+    <Image Include="T:\opencv\sources\samples\data\starry_night.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

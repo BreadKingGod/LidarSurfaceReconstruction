@@ -100,8 +100,9 @@
     <ClInclude Include="Includes\TextureObject.h" />
     <ClInclude Include="Includes\VertexArrayObject.h" />
     <ClInclude Include="MyApp.h" />
-    <ClInclude Include="ReadCoords.hpp" />
+    <ClInclude Include="Coords.hpp" />
     <ClInclude Include="ReadImage.hpp" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="T:\OGLPack\include\imgui\imconfig.h" />
     <ClInclude Include="T:\OGLPack\include\imgui\imgui.h" />
     <ClInclude Include="T:\OGLPack\include\imgui\imgui_impl_sdl_gl3.h" />
@@ -119,11 +120,11 @@
     <ClCompile Include="Includes\VertexArrayObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyApp.cpp" />
-    <None Include="..\..\..\..\Downloads\L1_S5.xyz" />
     <None Include="Includes\BufferObject.inl" />
     <None Include="Includes\ProgramObject.inl" />
     <None Include="Includes\TextureObject.inl" />
     <None Include="Includes\VertexArrayObject.inl" />
+    <None Include="points.xyz" />
     <None Include="skybox.frag" />
     <None Include="skybox.vert" />
     <ClCompile Include="T:\OGLPack\include\imgui\imgui.cpp" />
@@ -139,8 +140,6 @@
     <Image Include="starry_night.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
-    <Image Include="T:\opencv\sources\samples\data\starry_night.jpg" />
-    <Image Include="T:\opencv\sources\samples\data\starry_night.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

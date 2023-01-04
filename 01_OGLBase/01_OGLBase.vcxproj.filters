@@ -78,11 +78,14 @@
     <ClInclude Include="Coordinates.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="ReadCoords.hpp">
+    <ClInclude Include="Coords.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="ReadImage.hpp">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -152,18 +155,12 @@
     <None Include="Includes\VertexArrayObject.inl">
       <Filter>GL utilities</Filter>
     </None>
-    <None Include="..\..\..\..\Downloads\L1_S5.xyz">
+    <None Include="points.xyz">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="T:\opencv\sources\samples\data\starry_night.jpg">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="starry_night.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="T:\opencv\sources\samples\data\starry_night.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

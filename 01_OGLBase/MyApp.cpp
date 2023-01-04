@@ -9,6 +9,9 @@
 #include <imgui/imgui.h>
 #include "includes/GLUtils.hpp"
 
+#include "Coordinates.hpp"
+#include "Coords.hpp"
+
 CMyApp::CMyApp(void)
 {
 	m_camera.SetView(glm::vec3(5, 5, 5), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
@@ -243,7 +246,9 @@ void CMyApp::Render()
 
 	glm::mat4 viewProj = m_camera.GetViewProj();
 
-	//Suzanne
+	//! Suzanne
+
+	/*
 	glm::mat4 suzanneWorld = glm::mat4(1.0f);
 	m_program.Use();
 	m_program.SetTexture("texImage", 0, m_suzanneTexture);
@@ -251,29 +256,55 @@ void CMyApp::Render()
 	m_program.SetUniform("world", suzanneWorld);
 	m_program.SetUniform("worldIT", glm::inverse(glm::transpose(suzanneWorld)));
 	m_mesh->draw();
+	*/
 
-	// kockák
-	//m_program.Use(); nem hívjuk meg újra, hisz ugyanazt a shadert használják
+	//! kockák
+	m_program.Use(); //nem hívjuk meg újra, hisz ugyanazt a shadert használják
+
+	
 	m_CubeVao.Bind();
 	m_program.SetTexture("texImage", 0, m_woodTexture);
 	glm::mat4 cubeWorld;
 
-	float time = SDL_GetTicks() / 1000.0f * 2 * float(M_PI) / 10;
-	for (int i = 0; i < 10; ++i)
+	Coordinates c = Coords::read();
+	float time = 0;
+	for (int i = 0; i < c.values.size(); ++i)
 	{
+		double x = c.values[i].x;
+		double y = c.values[i].y;
+		double z = c.values[i].z;
 		cubeWorld =
-			glm::rotate(time + 2 * glm::pi<float>() / 10 * i, glm::vec3(0, 1, 0))*
-			glm::translate(glm::vec3(10 + 5 * sin(time), 0, 0))*
-			glm::rotate((i + 1)*time, glm::vec3(0, 1, 0));
+			//glm::rotate(time + 2 * glm::pi<float>() / 10 * i, glm::vec3(0, 1, 0))*
+			glm::translate(glm::vec3(x, y, z))*
+			glm::scale(glm::vec3(0.01, 0.01, 0.01))/*
+			glm::rotate((i + 1)*time, glm::vec3(0, 1, 0))*/;
 		m_program.SetUniform("MVP", viewProj * cubeWorld);
 		m_program.SetUniform("world", cubeWorld);
 		m_program.SetUniform("worldIT", glm::inverse(glm::transpose(cubeWorld)));
 		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, nullptr);
 	}
 	m_program.Unuse();
+	//? old
+	/*
+	float time = SDL_GetTicks() / 1000.0f * 2 * float(M_PI) / 10;
+	for (int i = 0; i < 10; ++i)
+	{
+		cubeWorld =
+			glm::rotate(time + 2 * glm::pi<float>() / 10 * i, glm::vec3(0, 1, 0)) *
+			glm::translate(glm::vec3(10 + 5 * sin(time), 0, 0)) *
+			glm::rotate((i + 1) * time, glm::vec3(0, 1, 0));
+		m_program.SetUniform("MVP", viewProj * cubeWorld);
+		m_program.SetUniform("world", cubeWorld);
+		m_program.SetUniform("worldIT", glm::inverse(glm::transpose(cubeWorld)));
+		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, nullptr);
+	}
+	*/
+	
+	
 
-	// skybox
+	//! skybox
 	// mentsük el az előző Z-test eredményt, azaz azt a relációt, ami alapján update-eljük a pixelt.
+	/*
 	GLint prevDepthFnc;
 	glGetIntegerv(GL_DEPTH_FUNC, &prevDepthFnc);
 
@@ -295,10 +326,13 @@ void CMyApp::Render()
 
 	// végül állítsuk vissza
 	glDepthFunc(prevDepthFnc);
+	*/
 
-
-	// 1. feladat: készíts egy vertex shader-fragment shader párt, ami tárolt geometria _nélkül_ kirajzol egy tetszőleges pozícióba egy XYZ tengely-hármast,
+	//! 1. feladat: készíts egy vertex shader-fragment shader párt, ami tárolt geometria _nélkül_ kirajzol egy tetszőleges pozícióba egy XYZ tengely-hármast,
 	//			   ahol az X piros, az Y zöld a Z pedig kék!
+
+	//! Points
+	//Coords::draw(Coords::read());
 
 	//ImGui Testwindow
 	ImGui::ShowTestWindow();

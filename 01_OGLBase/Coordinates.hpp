@@ -8,9 +8,9 @@
 
 class Coordinates
 {
-    std::vector<XYZCoordinate> values;
-
 public:
+
+    std::vector<XYZCoordinate> values;
 
     friend std::ostream& operator<<(std::ostream& out, const Coordinates& c) {
 
